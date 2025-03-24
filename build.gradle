@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+group = 'mc.space.dllpacker'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'space.JavaDllPacker'
+    }
+}
+
+java {
+    toolchain { languageVersion = JavaLanguageVersion.of(22) }
+}
