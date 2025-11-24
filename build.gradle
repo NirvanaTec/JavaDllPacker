@@ -11,6 +11,8 @@ repositories {
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+    // implementation 'com.alibaba.fastjson2:fastjson2:2.0.60'
+    implementation fileTree(dir: 'SpacePacker/libs', include: ['*.jar'])
 }
 
 test {
