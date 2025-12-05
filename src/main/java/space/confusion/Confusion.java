@@ -39,6 +39,10 @@ public class Confusion {
         // changeLog.txt 内容是否包含所有类
         for (ClassInfo classInfo : list) {
             // 在 changeLog.txt 中不存在该类
+            // 跳过 dev.jnic 包下的类，避免与 jnic 检测冲突
+            if(classInfo.name1.startsWith("dev.jnic.")){
+                continue;
+            }
             if (!changeLog.contains(classInfo.name1)) {
                 return false;
             } else if (classInfo.path.endsWith("/Loader.class")) {
